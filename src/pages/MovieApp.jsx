@@ -8,7 +8,6 @@
     import.meta.env.VITE_API_KEY
     }`;
 
-    // step 1: Create Context
     const MoviesContext = createContext();
     export { MoviesContext };
 
