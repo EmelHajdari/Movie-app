@@ -9,6 +9,12 @@ export default function Header() {
 
   const { getMovies, search, setSearch, searchMovies } = useContext(MoviesContext);
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      searchMovies();
+    }
+  };
+
   return (
     <Grid className="header" container spacing={2} alignItems="center" sx={{ flexGrow: 1, margin: '0 30px' }}>
       <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
@@ -52,6 +58,7 @@ export default function Header() {
             onChange={(e) => {
               setSearch(e.target.value);
             }}
+            onKeyPress={handleKeyPress}
           />
         </Grid>
         <Grid item xs={4} sm={5} md={5} lg={6} xl={6} justifyContent="flex-start">
