@@ -57,7 +57,9 @@ export default function TvShowList() {
                 
                 <div className='overview'>
                   {item.overview
-                    ? item.overview
+                      ? item.overview.length > 150
+                          ? item.overview.substring(0, 147) + '...'
+                          : item.overview
                     : 'Tv Show overview coming soon...'}
                 </div>
                

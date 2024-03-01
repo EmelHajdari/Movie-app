@@ -7,58 +7,42 @@ import { Link as RouterLink } from "react-router-dom";
 export default function Header() {
   let arr = ["Popular", "Kids", "Drama", "Horror"];
 
-  const { getMovies, search, setSearch, searchMovies } =
-    useContext(MoviesContext);
+  const { getMovies, search, setSearch, searchMovies } = useContext(MoviesContext);
 
   return (
-    <Grid className="header" container spacing={2} sx={{ flexGrow: 1 }}>
-      <Grid
-        style={{ alignSelf: "center" }}
-        item
-        xs={3}
-        sm={3}
-        md={2}
-        lg={2}
-        xl={2}
-      >
+    <Grid className="header" container spacing={2} alignItems="center" sx={{ flexGrow: 1 }}>
+      <Grid item xs={3} sm={3} md={2} lg={2} xl={2}>
         <RouterLink to="/">
           <img src={logo} alt="Movie App" />
         </RouterLink>
       </Grid>
-      <Grid style={{ alignSelf: "center" }} xs={6} sm={6} md={6} lg={6} xl={6}>
+      <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
         <nav className="navigation">
           {arr.map((value, position) => (
             <Link
-            color="primary" 
-            variant="contained"
-            sx={{ 
-            fontSize: "1rem",
-            backgroundColor: "#1976d2",
-            color: "#fff",
-            fontWeight: "lighter", // Stilizo tekstin në buton me fontWeight: lighter
-            '&:hover': {
-              backgroundColor: "#115293",
-            }
-          }}
               key={position}
               name={value}
               onClick={(e) => getMovies(e.target.name)}
+              style={{
+                margin: "10px",
+                padding: "5px 20px", 
+                borderRadius: "5px",
+                fontSize: "15px", 
+                backgroundColor: "#1976d2",
+                color: "#fff",
+                fontWeight: "lighter",
+                '&:hover': {
+                  backgroundColor: "#115293",
+                }
+              }}
             >
               {value}
             </Link>
           ))}
         </nav>
       </Grid>
-      <Grid item container xs={12} sm={12} md={4} lg={4} xl={4}>
-        <Grid
-          style={{ alignSelf: "center" }}
-          item
-          xs={5}
-          sm={5}
-          md={5}
-          lg={6}
-          xl={6}
-        >
+      <Grid item xs={3} sm={3} md={4} lg={4} xl={4} container alignItems="center" justifyContent="flex-end">
+        <Grid item xs={6} sm={7} md={7} lg={6} xl={6}>
           <Input
             color="light"
             size="sm"
@@ -70,7 +54,7 @@ export default function Header() {
             }}
           />
         </Grid>
-        <Grid item xs={6} sm={7} md={7} lg={6} xl={6}>
+        <Grid item xs={6} sm={5} md={5} lg={6} xl={6} justifyContent="flex-start">
           <button onClick={searchMovies}>Search Movie</button>
         </Grid>
       </Grid>

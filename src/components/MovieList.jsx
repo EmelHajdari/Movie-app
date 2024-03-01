@@ -56,7 +56,9 @@ export default function MovieList() {
 								<Typography level='title-md'>{item.title}</Typography>
 								<div className='overview'>
 									{item.overview
-										? item.overview
+										? item.overview.length > 150
+											? item.overview.substring(0, 147) + '...'
+											: item.overview
 										: 'Movie overview coming soon...'}
 								</div>
 							</CardContent>
