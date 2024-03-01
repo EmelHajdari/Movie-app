@@ -57,7 +57,7 @@ export default function MovieList() {
 								<div className='overview'>
 									{item.overview
 										? item.overview.length > 150
-											? item.overview.substring(0, 147) + '...'
+											? item.overview.substring(0, 147) + '....'
 											: item.overview
 										: 'Movie overview coming soon...'}
 								</div>
