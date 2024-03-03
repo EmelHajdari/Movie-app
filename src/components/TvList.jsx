@@ -11,6 +11,8 @@ import {
   Typography,
 } from "@mui/joy";
 
+const defaultTvShowImg = "https://www.themoviedb.org/t/p/w500//u3bZgnGQ9T01sWNhyveQz0wH0Hl.jpg";
+
 export default function TvShowList() {
   let imgUrl = "https://image.tmdb.org/t/p/w500";
 

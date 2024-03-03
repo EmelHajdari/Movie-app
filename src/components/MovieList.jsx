@@ -11,6 +11,7 @@ import {
 	Typography,
 } from '@mui/joy';
 
+
 export default function MovieList() {
 	let imgUrl = 'https://image.tmdb.org/t/p/w500';
 
